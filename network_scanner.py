@@ -27,11 +27,9 @@ def print_result(results):
         print(f"{client.get('ip')}\t\t\t{client.get('mac')}")
 
 args = argparse.ArgumentParser()
-args.add_argument('-t', '--target', dest='target', help='ip (range) target to scan')
+args.add_argument('-t', '--target', dest='target', help='ip (range) target to scan', required=True)
 
 my_args = args.parse_args()
-if not my_args.target:
-    args.error('[-] Please specify a target')
 
 # scan_results = scan('10.0.2.2/24')
 scan_results = scan(my_args.target)
